@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import react-toastify CSS */
+@import 'react-toastify/dist/ReactToastify.css';
+
+/* Ensure scrollbars are visible */
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Inter', ui-sans-serif, system-ui;
+}
+
+/* Prevent horizontal overflow */
+* {
+  max-width: 100%;
+}
+
+/* Main content areas must allow scroll */
+.main-content {
+  overflow-y: auto;
+  height: 100vh;
+}
+
+@layer utilities {
+  /* Only use scrollbar-hide for specific UI elements, never main content */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Custom checkbox animation */
+.task-checkbox {
+  @apply transition-all duration-300 ease-out;
+}
+
+.task-checkbox:checked {
+  @apply scale-110;
+}
+
+/* Task completion animation */
+.task-complete {
+  @apply transition-all duration-400 ease-in;
+}
+
+.task-fade-out {
+  @apply opacity-0 scale-95;
+}
+
+/* Priority flag animation */
+.priority-flag {
+  @apply transition-all duration-150 ease-out;
+}
+
+.priority-flag:hover {
+  @apply scale-105;
+}
+
+/* Natural language input focus */
+.task-input:focus {
+  @apply border-primary scale-[1.01];
+}
+
+/* Hover states for interactivity */
+.task-item:hover {
+  @apply bg-surface-100 border-l-2 border-l-primary transform scale-[1.02];
+  transition: all 150ms ease-out;
+}
